@@ -23,8 +23,8 @@ return new class extends Migration
 
             // Foreign key relationships
             $table->foreign('cid')->references('cid')->on('categories')->onDelete('cascade');
-            $table->foreign('manager_id')->references('id')->on('users')->onDelete('cascade'); // Assuming user table for manager
-            $table->foreign('staff_id')->references('id')->on('users')->onDelete('cascade'); // Assuming user table for staff
+            $table->foreign('manager_id')->references('id')->on('userss')->onDelete('cascade'); // Assuming user table for manager
+            $table->foreign('staff_id')->references('id')->on('userss')->onDelete('cascade'); // Assuming user table for staff
         });
     }
 

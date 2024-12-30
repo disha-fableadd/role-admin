@@ -23,12 +23,12 @@
         <a href="javascript:void(0);" class="nav-link p-0 d-flex align-items-center">
             <div class="avatar avatar-online me-2">
                 <!-- Use the profile image dynamically -->
-                <img src="<?php echo htmlspecialchars($profileImage); ?>" alt="User Avatar"
+                <img src="" alt="User Avatar"
                      class="w-px-40 h-auto rounded-circle" />
             </div>
             <div class="d-none d-sm-block">
                 <!-- Use the user’s full name dynamically -->
-                <span class="fw-semibold"><?php echo htmlspecialchars($fullName); ?></span>
+                <span class="fw-semibold"></span>
             </div>
         </a>
     </li>
