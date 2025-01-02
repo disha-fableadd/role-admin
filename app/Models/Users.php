@@ -4,7 +4,7 @@ namespace App\Models;
 use  App\Models\Userinfo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Project;
 class Users extends Model
 {
     use HasFactory;
@@ -25,4 +25,16 @@ class Users extends Model
     {
         return $this->hasOne(Userinfo::class, 'uid');
     }
+
+    public function managerProjects()
+    {
+        return $this->hasMany(Project::class, 'manager_id');
+    }
+    
+    public function staffProjects()
+    {
+        return $this->hasMany(Project::class, 'staff_id');
+    }
+  
+    
 }

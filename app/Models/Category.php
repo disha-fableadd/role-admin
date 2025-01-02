@@ -11,4 +11,10 @@ class Category extends Model
     protected $primaryKey = 'cid'; 
     protected $table = 'categories'; 
     protected $fillable = ['cname', 'description'];
+
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class, 'cid');
+    }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Users;
+use App\Models\Userinfo;
+use App\Models\Project;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
@@ -42,14 +44,65 @@ class LoginController extends Controller
 
     public function dashboard()
     {
-        $role = Session('role'); // Get the role from the session
+
+        $userId = session('user_id'); 
+
+        $user = DB::table('userss')
+        ->join('userinfo', 'userss.id', '=', 'userinfo.uid') 
+        ->where('userss.id', $userId)
+        ->select('userss.id','userss.role', 'userinfo.fname', 'userinfo.image')
+        ->first();
+        $userinfo = Userinfo::where('uid', $user->id)->first();
+
+        if ($user->role == 1) { 
+            
+            $projects = Project::with(['category', 'manager.userinfo', 'staff.userinfo'])->get();
+        }
+        elseif ($user->role == 2) { 
+            $projects = Project::with(['category', 'manager.userinfo', 'staff.userinfo'])
+                ->where('manager_id', $user->id)
+                ->get();
+        } 
+        elseif ($user->role == 3) { 
+            $projects = Project::with(['category', 'manager.userinfo', 'staff.userinfo'])
+                ->where('staff_id', $user->id)
+                ->get();
+        } 
+       
+
+        if ($user->role == 1) {
+        $users = Users::with('userinfo')->whereIn('role', [1, 2, 3])->get();
+        }
+        elseif ($user->role == 2) { 
+            $users = Users::with('userinfo')
+            ->where('id', $user->id) 
+            ->orWhereIn('id', function($query) use ($user) {
+                $query->select('id')
+                      ->from('userss')
+                      ->where('role', 3); 
+            })
+            ->get();
+        }
+        elseif ($user->role == 3) { 
+        
+            $users = Users::with('userinfo')
+            ->where('id', $user->id) 
+            ->orWhereIn('id', function($query) use ($user) {
+                $query->select('id')
+                      ->from('userss')
+                      ->where('role', 2); 
+            })
+            ->get();
+        }
+        
+        $role = Session('role'); 
     
         if (!$role) {
             return redirect()->route('login');
         }
     
         $data = [
-            'role' => $role, // Pass the role to the view
+            'role' => $role, 
         ];
     
         switch ($role) {
@@ -73,7 +126,7 @@ class LoginController extends Controller
                 return redirect()->route('login');
         }
     
-        return view('dashboard', $data);
+        return view('dashboard', $data , compact('user','users','userinfo','projects'));
     }
     
     

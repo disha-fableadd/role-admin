@@ -25,7 +25,7 @@
                                     <input type="text" class="form-control" id="fname" name="fname"
                                         placeholder="First Name" aria-label="First Name"
                                         aria-describedby="basic-icon-default-fname"
-                                        value="{{ $userInfo->fname }}" />
+                                        value="{{ $userinfo->fname }}" />
                                 </div>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                                     <input type="text" class="form-control" id="lname" name="lname"
                                         placeholder="Last Name" aria-label="Last Name"
                                         aria-describedby="basic-icon-default-lname"
-                                        value="{{ $userInfo->lname }}" />
+                                        value="{{ $userinfo->lname }}" />
                                 </div>
                             </div>
                         </div>
@@ -52,17 +52,17 @@
                                 <div class="input-group input-group-merge">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="gender" id="gender-male"
-                                            value="male" {{ $userInfo->gender == 'male' ? 'checked' : '' }}>
+                                            value="male" {{ $userinfo->gender == 'male' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="gender-male">Male</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="gender" id="gender-female"
-                                            value="female" {{ $userInfo->gender == 'female' ? 'checked' : '' }}>
+                                            value="female" {{ $userinfo->gender == 'female' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="gender-female">Female</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="gender" id="gender-other"
-                                            value="other" {{ $userInfo->gender == 'other' ? 'checked' : '' }}>
+                                            value="other" {{ $userinfo->gender == 'other' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="gender-other">Other</label>
                                     </div>
                                 </div>
@@ -75,11 +75,9 @@
                         <label for="type" class="form-label">Role</label>
                         <select id="role" name="role" class="form-select" required>
                         <option value="">Select Role</option>
-                            @foreach($role as $key => $roles)
-                                <option value="{{ $key }}" {{ $user->roles == $key ? 'selected' : '' }}>
-                                    {{ $roles }}
-                                </option>
-                            @endforeach
+                        <option value="1" {{ $role == 1 ? 'selected' : '' }}>Admin</option>
+                        <option value="2" {{ $role == 2 ? 'selected' : '' }}>Manager</option>
+                        <option value="3" {{ $role == 3 ? 'selected' : '' }}>Staff</option>
                         </select>
                     </div>
 
@@ -104,7 +102,7 @@
                             <input type="text" id="contact" name="contact" class="form-control"
                                 placeholder="Contact Number" aria-label="Contact Number"
                                 aria-describedby="basic-icon-default-contact"
-                                value="{{ $userInfo->contact }}" />
+                                value="{{ $userinfo->contact }}" />
                         </div>
                     </div>
 
@@ -119,7 +117,7 @@
                                     class="ri-map-pin-line ri-20px"></i></span>
                             <textarea id="address" name="address" class="form-control" placeholder="Enter your address"
                                 rows="4" aria-label="Address" aria-describedby="basic-icon-default-address"
-                                required>{{ $userInfo->address }}</textarea>
+                                required>{{ $userinfo->address }}</textarea>
                         </div>
                     </div>
 
@@ -132,7 +130,7 @@
                     <div class="alert alert-danger">{{ session('error') }}</div>
                 @endif
                
-                <div id="message"></div>
+               
             </div>
         </div>
     </div>

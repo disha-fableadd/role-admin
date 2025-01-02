@@ -41,7 +41,6 @@
     </div>
 
     <div class="menu-inner-shadow"></div>
-
     @if ($role == 1)
     <ul class="menu-inner py-1">
         <!-- Dashboards -->
@@ -84,12 +83,12 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="addproject.php" class="menu-link">
+                    <a href="{{ route('projects.create') }}" class="menu-link">
                         <div data-i18n="Account">Add Project</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="allproject.php" class="menu-link">
+                    <a href="{{ route('projects.index') }}" class="menu-link">
                         <div data-i18n="Notifications">All Projects</div>
                     </a>
                 </li>
@@ -103,14 +102,14 @@
         </li>
 
         <li class="menu-item">
-            <a href="profile1.php" class="menu-link">
+            <a href="{{ route('profile.show') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-user-line"></i>
                 <div data-i18n="Logistics">Profile</div>
 
             </a>
         </li>
         <li class="menu-item">
-            <a href="#" id="logoutBtn" class="menu-link">
+            <a href="{{ route('logout') }}" id="logoutBtn" class="menu-link">
                 <i class="menu-icon tf-icons ri-logout-box-line"></i>
                 <div data-i18n="Logout">Logout</div>
             </a>
@@ -122,7 +121,7 @@
     <ul class="menu-inner py-1">
         <!-- Dashboards -->
         <li class="menu-item  ">
-            <a href="dashboard.php" class="menu-link">
+            <a href="{{ route('dashboard') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-home-smile-line"></i>
                 <div data-i18n="Dashboards">Dashboard</div>
 
@@ -138,7 +137,7 @@
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="allprojects.php" class="menu-link">
+                    <a href="{{ route('projects.display') }}" class="menu-link">
                         <div data-i18n="Without menu">All Project</div>
                     </a>
                 </li>
@@ -155,7 +154,7 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="alldetails.php" class="menu-link">
+                    <a href="{{ route('user.display') }}" class="menu-link">
                         <div data-i18n="Account">All Details</div>
                     </a>
                 </li>
@@ -163,14 +162,14 @@
         </li>
 
         <li class="menu-item">
-            <a href="profile1.php" class="menu-link">
+            <a href="{{ route('profile.show') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-user-line"></i>
                 <div data-i18n="Logistics">Profile</div>
 
             </a>
         </li>
         <li class="menu-item">
-            <a href="#" id="logoutBtn" class="menu-link">
+            <a href="{{ route('logout') }}" id="logoutBtn" class="menu-link">
                 <i class="menu-icon tf-icons ri-logout-box-line"></i>
                 <div data-i18n="Logout">Logout</div>
             </a>
@@ -182,7 +181,7 @@
     <ul class="menu-inner py-1">
         <!-- Dashboards -->
         <li class="menu-item  ">
-            <a href="dashboard.php" class="menu-link">
+            <a href="{{ route('dashboard') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-home-smile-line"></i>
                 <div data-i18n="Dashboards">Dashboard</div>
 
@@ -198,7 +197,7 @@
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="allprojects.php" class="menu-link">
+                    <a href="{{ route('projects.display') }}" class="menu-link">
                         <div data-i18n="Without menu">All Project</div>
                     </a>
                 </li>
@@ -215,7 +214,7 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="alldetails.php" class="menu-link">
+                    <a href="{{ route('user.display') }}" class="menu-link">
                         <div data-i18n="Account">All Details</div>
                     </a>
                 </li>
@@ -223,14 +222,14 @@
         </li>
 
         <li class="menu-item">
-            <a href="profile1.php" class="menu-link">
+            <a href="{{ route('profile.show') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-user-line"></i>
                 <div data-i18n="Logistics">Profile</div>
 
             </a>
         </li>
         <li class="menu-item">
-            <a href="#" id="logoutBtn" class="menu-link">
+            <a href="{{ route('logout') }}" id="logoutBtn" class="menu-link">
                 <i class="menu-icon tf-icons ri-logout-box-line"></i>
                 <div data-i18n="Logout">Logout</div>
             </a>
